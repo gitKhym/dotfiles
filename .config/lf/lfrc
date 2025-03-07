@@ -1,0 +1,117 @@
+# vim: foldmethod=marker foldlevel=0 filetype=lfrc
+set selectfmt "\033[7;36m"
+
+set shell zsh
+set scrolloff 10
+set icons
+set ignorecase
+set info size:time
+set wrapscroll
+set ratios 1:2:2
+set borderfmt "\033[35m"
+set drawbox  false
+set roundbox 
+set hidden
+
+# preview and cleaner
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
+
+# Bindings
+map a push :create<space>
+map l open
+map x delete
+map C edit-config
+map <esc> unselect
+map <space> :toggle
+map <c-o> $$SHELL
+map <a-f> :fzf_jump
+map c
+map cc clear
+map ch push :chmod<space>
+map cu push :curl<space>
+map ob :open-obsidian
+
+# Bookmarks
+map gu  cd "~/obsidian-vault/(01) RMIT/2025/Semester 1"
+map gp  cd ~/projects
+map gd  cd ~/Downloads
+
+cmd open ${{
+    case "$f" in
+        *.pdf) zathura "$f" & ;;
+        *) ${OPENER:-xdg-open} "$f" & ;;
+    esac
+}}
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd on-cd &{{
+    printf "\033]0; $PWD\007" > /dev/tty
+}}
+
+
+on-cd
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+cmd touch $touch "$(echo $* | tr ' ' '\ ')"
+
+cmd create ${{
+    created_file="$(echo $* | tr ' ' '\ ')"
+
+    if [[ "$created_file" == */ ]]; then
+        mkdir -p "$created_file"
+    else
+        dir_path="$(dirname "$created_file")"
+        mkdir -p "$dir_path"
+        touch "$created_file"
+    fi
+}}
+
+cmd chmod ${{
+  chmod $* "$(echo $f | tr ' ' '\ ')"
+}}
+
+cmd curl ${{
+  curl -L -o $*
+}}
+
+cmd open-obsidian ${{
+  # Open obsidian note via uri
+  vault="obsidian-vault"
+  obsidian_file=$(echo $f | sed 's|.*(\(01\))|\(01\)|')
+  uri="obsidian://advanced-uri?vault=$vault&filepath=$obsidian_file&openmode=tab"
+  xdg-open $uri
+
+  # Focus on obsidian workspace and window
+  i3-msg "[class=obsidian]" focus
+}}
+
+set promptfmt "
+\033[7m 󱤅 
+\033[0m
+\033[35m %d %f
+"
+set statfmt "
+\033[7m %S 
+\033[0m
+\033[7m %p 
+\033[0m
+\033[35m %t 
+"
+
+set rulerfmt "
+\033[35m (/￣ー￣)/~~☆’.･.･:★’.･.･:☆ Files type shit |
+\033[0m\033[7m %m 󰆐  \033[0m|
+\033[0m\033[7m %c   \033[0m|
+\033[0m\033[7m %t   \033[0m|
+\033[0m\033[7m %i 󰉸  \033[0m|
+\033[0m\033[7m %d   |
+"
+
+
+set timefmt  "1:04 PM Jan _2 2006"
+
