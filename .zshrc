@@ -78,23 +78,30 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting) 
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-vi-mode) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Change Manpager to nvim
 export MANPAGER='nvim +Man!'
+
+# zsh vi mode
+ZVM_VI_EDITOR=nvim
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export LIBINPUT_ATTR_SCROLL_METHOD="button"
+export LIBINPUT_ATTR_SCROLL_BUTTON="2"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -113,6 +120,7 @@ export MANPAGER='nvim +Man!'
 alias n=nvim
 alias c=clear
 alias cd=z
+alias cdi=zi
 alias ls='exa --icons --no-permissions --no-user --no-time -s type'
 alias l='lf'
 alias lg='lazygit'

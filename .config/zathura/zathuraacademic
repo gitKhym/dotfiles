@@ -1,0 +1,53 @@
+# GENERAL
+set adjust-open "width"
+set vertical-center true
+set zoom-center true
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set window-title-basename true
+set window-title-page true
+set statusbar-basename true
+set sandbox none
+set selection-clipboard clipboard
+
+map = zoom in 
+map - zoom out
+
+unmap u
+unmap d
+map d half-down
+map u half-up
+
+# SCROLL
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# Smooth scroll
+# map j feedkeys "<C-Down>"
+# map k feedkeys "<C-Up>"
+# FONT
+set font "AnomalyMono Nerd Font"
+
+# COLOURS
+set recolor "true"
+
+set recolor-lightcolor rgba(0,0,0,0)
+
+set statusbar-bg "#1c1e2a" #01
+
+set index-fg "#ffffff"
+
+set completion-group-bg rgba(28,30,42,0.5)
+set completion-group-fg "#ffffff"
+set completion-bg rgba(28,30,42,0.5)
+set completion-fg "#ffffff"
+set completion-highlight-fg "#000000"
+
+set highlight-fg "#aff"
+
+set inputbar-bg "#1c1e2a"
+
+set recolor-darkcolor "#E0E0E0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
