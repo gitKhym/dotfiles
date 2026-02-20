@@ -1,0 +1,17 @@
+@use "_colors" as col;
+@use "_constants" as con;
+
+box.clock {
+  font-family: "Lexend Deca";
+  background: col.$bg_color;
+  padding: 4px 10px 0 0;
+  border-radius: con.$radius 0 0 con.$radius;
+
+  > label.date {
+    color: col.$accent;
+  }
+  > label.time {
+    font-weight: bold;
+    color: col.$fg_color;
+  }
+}

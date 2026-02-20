@@ -1,0 +1,18 @@
+@use "_colors" as col;
+@use "_constants" as con;
+
+.focused-window {
+  font-family: "Lexend Deca";
+  font-size: 1rem;
+  padding: con.$padding;
+  background-color: col.$bg_color;
+  border-radius: con.$radius;
+
+  // border-right: 5px solid col.$accent;
+  > .window-class {
+    color: col.$accent;
+  }
+  > .window-title {
+    color: white;
+  }
+}

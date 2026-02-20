@@ -1,3 +1,13 @@
+fastfetch -c yuu.jsonc
+
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# QML
+export QML_IMPORT_PATH=/usr/lib/qt6/qml
+export QML2_IMPORT_PATH=/usr/lib/qt6/qml
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -125,6 +135,7 @@ alias ls='exa --icons --no-permissions --no-user --no-time -s type'
 alias l='lf'
 alias lg='lazygit'
 alias zt='zathura'
+alias code='code --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

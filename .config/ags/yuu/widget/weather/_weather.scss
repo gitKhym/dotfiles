@@ -1,0 +1,13 @@
+@use "_colors" as col;
+@use "_constants" as con;
+
+box.weather {
+  font-family: "Lexend Deca";
+  background: col.$accent;
+  padding: con.$padding;
+  color: col.$bg_color;
+  border-radius: con.$radius;
+  > .temperature-text {
+    font-weight: bold;
+  }
+}

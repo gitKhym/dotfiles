@@ -1,0 +1,16 @@
+@use "colors" as col;
+@use "constants" as con;
+.system-box {
+  font-family: "Lexend Deca";
+  padding: con.$padding;
+
+  border-radius: con.$radius;
+  background-color: col.$bg_color;
+  > label.system-part {
+    color: col.$accent;
+  }
+
+  > label.system-value {
+    color: col.$accent;
+  }
+}

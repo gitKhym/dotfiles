@@ -1,0 +1,112 @@
+@use "_colors" as col;
+@use "_constants" as con;
+@use "widget/mpris/mpris";
+@use "widget/workspaces/workspaces";
+@use "widget/focused/focusedWindow";
+@use "widget/tray/tray";
+@use "widget/system/system";
+@use "widget/islands/island";
+@use "widget/clock/clock";
+@use "widget/weather/weather";
+
+window.Bar {
+  // background: linear-gradient(
+  //   to bottom,
+  //   // col.$bg_color 5%,
+  //   col.$bg_color_translucent 50%,
+  //   transparentj51%
+  // );
+  background: transparent;
+  color: col.$fg-color;
+  font-family: "Lexend Deca";
+  font-size: 1rem;
+  border: none;
+}
+
+window.left-bar {
+  background: transparent;
+}
+
+.separator {
+  min-width: 2px;
+  border-radius: 50rem;
+  margin: 0 10px;
+  background-color: col.$accent_light;
+}
+
+box.center-island {
+  background-color: transparent;
+
+  transition-duration: 3s;
+  transition-property: width;
+
+  > box.content {
+    background-color: col.$bg_color;
+    padding: 10px 25px;
+    border-radius: 0 0 2rem 2rem;
+  }
+}
+
+button {
+  background: col.$bg_color;
+  color: col.$accent;
+  &:hover {
+    background: col.$accent_light;
+  }
+}
+
+.custom-icon {
+  font-size: 1.5rem;
+  color: col.$accent;
+}
+
+.astal-slider trough {
+  background: col.$bg_color_light;
+  min-height: 6px;
+  border-radius: 50rem;
+}
+
+.astal-slider trough highlight {
+  background: col.$accent;
+  min-height: 6px;
+  border-radius: 50rem;
+}
+
+.astal-slider slider {
+  background: col.$accent;
+  border-radius: 50rem;
+}
+
+/* Hover effect */
+.astal-slider slider:hover {
+  background: col.$accent_hover;
+}
+
+popover > contents {
+  background-color: transparent;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.popover-content {
+  background: col.$bg_color;
+  color: white;
+  padding: 10px;
+  border-radius: con.$radius;
+}
+
+.menubutton {
+  > button {
+    border-radius: con.$radius;
+  }
+  > button > box > contents > box > label {
+    font-weight: normal;
+  }
+  > button > box > contents > box > box > label {
+    font-weight: normal;
+  }
+
+  > button > box > contents > box > box > box > label {
+    font-weight: normal;
+  }
+}

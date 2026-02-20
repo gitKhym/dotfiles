@@ -1,0 +1,21 @@
+@use "_colors" as col;
+box.mpris {
+  font-size: 1rem;
+  font-family: "Lexend Deca";
+}
+
+.song-artist {
+  font-size: 0.9rem;
+  color: col.$accent;
+}
+.song-title {
+  margin-bottom: 4px;
+}
+
+.cover-art {
+  border-radius: 100px;
+}
+
+.progress-bar {
+  background: col.$accent_light;
+}

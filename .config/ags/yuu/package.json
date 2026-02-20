@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "ags": "*",
+    "gnim": "*"
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 2
+  },
+  "devDependencies": {
+    "@ts-for-gir/cli": "^4.0.0-beta.38"
+  }
+}

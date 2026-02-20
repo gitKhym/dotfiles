@@ -1,0 +1,22 @@
+@use "constants" as con;
+@use "colors" as col;
+
+box.island {
+  background-color: transparent;
+  > box.content {
+    background-color: col.$bg_color;
+    padding: 10px 25px;
+  }
+}
+
+box.left-island {
+  > box.content {
+    border-radius: 0 0 2rem 0;
+  }
+}
+
+box.right-island {
+  > box.content {
+    border-radius: 0 0 0 2rem;
+  }
+}

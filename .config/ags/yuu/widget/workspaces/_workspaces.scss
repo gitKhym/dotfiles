@@ -1,0 +1,21 @@
+@use "_colors" as col;
+@use "_constants" as con;
+
+.workspaces {
+  background-color: col.$bg_color;
+  color: col.$accent;
+  padding: 12px 12px;
+  border-radius: 0 0 #{con.$radius} 0;
+
+  .workspace {
+    border-radius: #{con.$radius};
+  }
+
+  .focused {
+    background-color: col.$accent;
+    color: black;
+  }
+  .unfocused {
+    background-color: col.$accent_light;
+  }
+}
